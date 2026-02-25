@@ -27,8 +27,8 @@ export async function shortenUrl(formData: FormData) {
         .single();
 
     if (error) {
-        console.error('Erro ao inserir URL:', error);
-        return { error: 'Erro ao criar link encurtador' };
+        console.error('Erro detalhado do Supabase:', error);
+        return { error: `Erro no Banco de Dados: ${error.message}` };
     }
 
     revalidatePath('/');
